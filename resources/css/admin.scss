@@ -1,0 +1,331 @@
+@import "vendor";
+
+$ico-trash: "data:image/svg+xml,<svg width='16' height='18' viewBox='0 0 16 18' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M6.25 0C5.8125 0 5.45312 0.140625 5.17188 0.421875C4.89062 0.703125 4.75 1.0625 4.75 1.5V2.25H0.25V3.75H1V15.75C1 16.3594 1.21875 16.8906 1.65625 17.3438C2.10938 17.7812 2.64062 18 3.25 18H12.25C12.8594 18 13.3828 17.7812 13.8203 17.3438C14.2734 16.8906 14.5 16.3594 14.5 15.75V3.75H15.25V2.25H10.75V1.5C10.75 1.0625 10.6094 0.703125 10.3281 0.421875C10.0469 0.140625 9.6875 0 9.25 0H6.25ZM6.25 1.5H9.25V2.25H6.25V1.5ZM2.5 3.75H13V15.75C13 15.9531 12.9219 16.1328 12.7656 16.2891C12.625 16.4297 12.4531 16.5 12.25 16.5H3.25C3.04688 16.5 2.86719 16.4297 2.71094 16.2891C2.57031 16.1328 2.5 15.9531 2.5 15.75V3.75ZM4 6V14.25H5.5V6H4ZM7 6V14.25H8.5V6H7ZM10 6V14.25H11.5V6H10Z' fill='%2387878B'/></svg>";
+
+/* Global Styles */
+html {
+  height: 100%;
+}
+body {
+  margin-top: 100px;
+  background-color: #f5f8fa;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+#app {
+  padding-left: 0;
+  transition: 0.3s padding-left;
+}
+#page-wrapper {
+  width: 100%;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  body {
+    margin-top: 50px;
+  }
+  #app {
+    padding-left: 210px;
+  }
+  #page-wrapper {
+    padding: 10px 0;
+  }
+}
+
+button:focus {
+  box-shadow: none !important;
+}
+
+.side-nav hr {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+/* Top Navigation */
+.navbar-header {
+  width: 100%;
+}
+.navbar-light {
+  padding: 5px;
+  border-color: #aaa;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+.navbar-nav .dropdown-menu {
+  position: absolute;
+}
+
+@media (max-width: 767px) {
+  .menu-toggler {
+    display: none;
+  }
+}
+
+/* Side Navigation */
+@media (min-width: 768px) {
+  .side-nav {
+    position: fixed;
+    top: 51px;
+    left: 210px;
+    width: 210px;
+    margin-left: -210px;
+    border: none;
+    border-right: 1px solid #aaa;
+    border-radius: 0;
+    overflow-y: auto;
+    bottom: 0;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+    transition: 0.3s width;
+    > li > a {
+      display: block;
+      width: 100%;
+      line-height: 16px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      &:hover {
+        outline: none;
+      }
+    }
+  }
+
+  .menu-toggler {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  #app.menu-closed {
+    padding-left: 0;
+    .side-nav {
+      width: 0;
+    }
+  }
+}
+.side-nav {
+  background-color: #f8f8f8;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.14), 0 10px 10px 0 rgba(0, 0, 0, 0.12),
+    0 4px 4px -1px rgba(0, 0, 0, 0.2);
+  > li > a {
+    color: #42526e;
+    &:hover {
+      color: #0052cc;
+    }
+    &:focus {
+      background-color: transparent;
+    }
+    &.active,
+    &.active:focus {
+      background-color: #eee;
+      color: #0052cc;
+    }
+  }
+  .collapse,
+  .collapsing {
+    li {
+      background-color: #444444;
+      a:hover {
+        background-color: #373737;
+        color: #fff;
+      }
+      a:before {
+        content: "";
+        transition: margin ease 0.5s;
+      }
+    }
+  }
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 5px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.sticky,
+.card {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+  pointer-events: none;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.required {
+  label {
+    position: relative;
+    &:after {
+      content: "*";
+      position: absolute;
+      right: -8px;
+      top: 0px;
+      color: #f00;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+}
+
+.sort {
+  cursor: pointer;
+  color: #6574cd;
+  position: relative;
+  &.asc:after {
+    content: "\2193";
+    padding-left: 4px;
+  }
+  &.desc:after {
+    content: "\2191";
+    padding-left: 4px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+body.dragging,
+body.dragging * {
+  cursor: move !important;
+}
+.sorted {
+  .dragged {
+    position: absolute;
+    z-index: 2000;
+    background: rgba(#fff, 0.5);
+    border: 1px solid rgba(#000, 0.13);
+  }
+  .placeholder {
+    position: relative;
+    min-height: 41px;
+  }
+  .placeholder:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-left-color: red;
+    margin-top: -5px;
+    left: 0;
+    border-right: none;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  i.move {
+    cursor: move;
+  }
+}
+
+.card.placeholder {
+  max-width: 150px;
+  height: 120px;
+}
+.mw-150 {
+  max-width: 150px;
+}
+.w-90 {
+  max-width: 90%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.search-form {
+  position: relative;
+}
+.search-result-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background-color: #fff;
+  box-shadow: 0 1px 2px #000;
+  border-radius: 5px;
+  z-index: 10;
+  li {
+    display: block;
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid #aaa;
+  }
+  img {
+    max-width: 40px;
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: 52px;
+  z-index: 10;
+}
+
+/* For other boilerplate styles, see: https://www.tiny.cloud/docs/tinymce/7/editor-content-css/ */
+/*
+* For rendering images inserted using the image plugin.
+* Includes image captions using the HTML5 figure element.
+*/
+
+figure.image {
+  display: inline-block;
+  border: 1px solid gray;
+  margin: 0 2px 0 1px;
+  background: #f5f2f0;
+}
+
+figure.align-left {
+  float: left;
+}
+
+figure.align-right {
+  float: right;
+}
+
+figure.image img {
+  margin: 8px 8px 0 8px;
+}
+
+figure.image figcaption {
+  margin: 6px 8px 6px 8px;
+  text-align: center;
+}
+
+/*
+   Alignment using classes rather than inline styles
+   check out the "formats" option
+  */
+
+img.align-left {
+  float: left;
+}
+
+img.align-right {
+  float: right;
+}
+
+/* Basic styles for Table of Contents plugin (tableofcontents) */
+.mce-toc {
+  border: 1px solid gray;
+}
+
+.mce-toc h2 {
+  margin: 4px;
+}
+
+.mce-toc li {
+  list-style-type: none;
+}

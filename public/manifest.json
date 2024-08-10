@@ -1,0 +1,13 @@
+{
+  "resources/css/admin.scss": {
+    "file": "assets/admin.css",
+    "src": "resources/css/admin.scss",
+    "isEntry": true
+  },
+  "resources/js/admin.js": {
+    "file": "assets/admin2.js",
+    "name": "admin",
+    "src": "resources/js/admin.js",
+    "isEntry": true
+  }
+}

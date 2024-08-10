@@ -44,4 +44,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function hasAnyRole($roles)
+    {
+        if (is_array($roles)) {
+            foreach ($roles as $role) {
+                if ($this->role == $role) return true;
+            }
+        } else {
+            if ($this->role == $roles) return true;
+        }
+        return false;
+    }
 }

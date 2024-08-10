@@ -1,3 +1,4 @@
+import * as bootstrap from 'bootstrap'
 
 const editor_config = {
   license_key: "gpl",

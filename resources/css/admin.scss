@@ -1,6 +1,13 @@
+$accordion-button-bg: #f8f9fa;
+$accordion-button-active-bg: #f8f9fa;
+
 @import "bootstrap/scss/bootstrap";
 
 $ico-trash: "data:image/svg+xml,<svg width='16' height='18' viewBox='0 0 16 18' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M6.25 0C5.8125 0 5.45312 0.140625 5.17188 0.421875C4.89062 0.703125 4.75 1.0625 4.75 1.5V2.25H0.25V3.75H1V15.75C1 16.3594 1.21875 16.8906 1.65625 17.3438C2.10938 17.7812 2.64062 18 3.25 18H12.25C12.8594 18 13.3828 17.7812 13.8203 17.3438C14.2734 16.8906 14.5 16.3594 14.5 15.75V3.75H15.25V2.25H10.75V1.5C10.75 1.0625 10.6094 0.703125 10.3281 0.421875C10.0469 0.140625 9.6875 0 9.25 0H6.25ZM6.25 1.5H9.25V2.25H6.25V1.5ZM2.5 3.75H13V15.75C13 15.9531 12.9219 16.1328 12.7656 16.2891C12.625 16.4297 12.4531 16.5 12.25 16.5H3.25C3.04688 16.5 2.86719 16.4297 2.71094 16.2891C2.57031 16.1328 2.5 15.9531 2.5 15.75V3.75ZM4 6V14.25H5.5V6H4ZM7 6V14.25H8.5V6H7ZM10 6V14.25H11.5V6H10Z' fill='%2387878B'/></svg>";
+
+.form-control:focus {
+  box-shadow: none;
+}
 
 /* Global Styles */
 html {
@@ -41,7 +48,7 @@ button {
     justify-content: center;
     min-height: 100vh;
     form {
-        max-width: 320px;
+        max-width: 380px;
         width: 100%;
         border: 1px solid #ddd;
         padding: 30px;
@@ -68,7 +75,8 @@ button {
 
 
 body {
-  background-color: #f5f8fa;
+  background-color: #fbf9f8;
+  color: #333;
   line-height: 1.5;
   font-size: 1rem;
 }
@@ -106,9 +114,8 @@ button:focus {
 }
 .navbar-light {
   padding: 5px;
-  border-color: #aaa;
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
-    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid;
+  border-color: #dfe3e8;
 }
 .navbar-nav .dropdown-menu {
   position: absolute;
@@ -129,7 +136,7 @@ button:focus {
     width: 210px;
     margin-left: -210px;
     border: none;
-    border-right: 1px solid #aaa;
+    border-right: 1px solid #dfe3e8;
     border-radius: 0;
     overflow-y: auto;
     bottom: 0;
@@ -162,7 +169,7 @@ button:focus {
   }
 }
 .side-nav {
-  background-color: #f8f8f8;
+  background-color: #f8f9fa;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.14), 0 10px 10px 0 rgba(0, 0, 0, 0.12),
     0 4px 4px -1px rgba(0, 0, 0, 0.2);
   > li > a {
@@ -318,7 +325,7 @@ body.dragging * {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #dfe3e8;
   }
   img {
     max-width: 40px;

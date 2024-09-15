@@ -48,3 +48,63 @@ const editor_config = {
 };
 
 tinymce.init(editor_config);
+
+const getCSRFToken = () => {
+  return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+}
+
+//Delete record
+document.querySelectorAll('.delete').forEach(deleteButton => {
+  deleteButton.addEventListener('click', function(e) {
+    document.querySelector('.flash-message').innerHTML = '';
+    let item = this;
+    if (!item.classList.contains('not-confirm')) {
+      if (!confirm('Ви впевненні, що хочете видалити?')) return false;
+    }
+    e.preventDefault();
+
+    fetch(this.getAttribute("href"), {
+      method: 'DELETE',
+      headers: {
+        'X-CSRF-Token': getCSRFToken(),
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status == 'error') {
+        document.querySelector('.flash-message').innerHTML = `
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            ${data.msg}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        `;
+      } else {
+        if (!item.classList.contains('noreload')) location.reload(true);
+        item.closest('.noreload-parent').remove();
+      }
+    });
+  });
+});
+
+//Change status
+document.querySelectorAll('.change-status').forEach(statusButton => {
+  statusButton.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    fetch(this.getAttribute("href"), {
+      method: 'PUT',
+      headers: {
+        'X-CSRF-Token': getCSRFToken(),
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      location.reload(true);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+});

@@ -1,5 +1,18 @@
 @extends('admin.layout')
 
 @section('content')
-<h1>Dashboard</h1>
+<div class="card">
+    <div class="card-header bg-light d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">{{ __('Dashboard') }}</h5>
+    </div>
+
+    <div class="card-body">
+        <div class="mb-5">
+            Main statistics
+        </div>
+        <div class="text-muted">
+            Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+        </div>
+    </div>
+  </div>
 @endsection

@@ -28,5 +28,9 @@
     <button type="submit">
         {{ __('Reset Password') }}
     </button>
+
+    <a href="{{ route('login') }}">
+        {{ __('Login') }}
+    </a>
 </form>
 @endsection

@@ -13,6 +13,24 @@
     "Save": "Зберегти",
     "Dashboard": "Дашборд",
 
+    "Created": "Створено",
+    "Updated": "Оновлено",
+
+    "Blog Categories": "Категорії блогу",
+    "Categories": "Категорії",
+    "Create New Category": "Створити категорію",
+    "Edit Category": "Редагувати категорію",
+    "Create": "Створити",
+    "Cancel": "Скасувати",
+    "Title": "Назва",
+    "Preview": "Попередній перегляд",
+    "Show": "Показати",
+    "Show in menu": "Показати в меню",
+    "Show on the site": "Показати на сайті",
+
+    "Leave empty if you want to Slug generated from Title UA": "Залиште поле пустим, якщо ви хочете генерувати Slug від Title UA",
+    "Prevent robots from indexing of a page": "Заборонити роботам індексувати сторінку",
+    "Prevent robots from following links on the page": "Заборонити роботам слідувати посиланнями на сторінці",
 
     "Login": "Логін",
     "Logout": "Вихід",

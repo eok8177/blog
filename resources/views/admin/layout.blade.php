@@ -29,39 +29,46 @@
 
           <button type="button" class="menu-toggler nav-link" onclick="document.getElementById('app').classList.toggle('menu-closed');"><span class="navbar-toggler-icon"></span></button>
 
-
           <li class="nav-item">
             <a href="{{route('admin.dashboard')}}" class="nav-link">{{ __('Dashboard') }}</a>
+          </li>
+          <li class="nav-item d-none d-md-block">
+            <a href="{{route('admin.blog-category.index')}}" class="nav-link"><i class="fa fa-book"></i> {{ __('Blog Categories') }}</a>
           </li>
 
         </div>
 
         <ul class="navbar-nav flex-row">
 
-          <li class="nav-item me-2">
+          <li class="nav-item me-2  d-none d-md-block">
             <a href="/" class="nav-link" target="_blank"><i class="fa fa-home"></i> <span class="d-none d-xl-inline">{{ __('to Site') }}</span></a>
           </li>
 
           <li class="nav-item dropdown">
 
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="nav-link dropdown-toggle  d-none d-md-block" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{ auth()->user()->name }}
             </a>
             <div class="dropdown-menu dropdown-menu-end">
-              <a href="{{route('admin.user.edit',auth()->user())}}" class="dropdown-item">{{ __('Profile') }}</a>
+              <a href="{{route('admin.user.edit',auth()->user())}}" class="dropdown-item">
+                <i class="fa fa-user"></i> {{ __('Profile') }}
+              </a>
 
               <div class="dropdown-divider"></div>
 
-              <a class="dropdown-item" href="{{route('admin.user.create')}}"><i class="fa fa-user"></i> {{ __('New User') }}</a>
-              <a class="dropdown-item" href="{{route('admin.user.index')}}"><i class="fa fa-users"></i> {{ __('All Users') }}</a>
+              <a class="dropdown-item" href="{{route('admin.user.create')}}">
+                <i class="fa fa-user-o"></i> {{ __('New User') }}
+              </a>
+              <a class="dropdown-item" href="{{route('admin.user.index')}}">
+                <i class="fa fa-users"></i> {{ __('All Users') }}
+              </a>
 
               <div class="dropdown-divider"></div>
-
 
               <a href="{{ route('logout') }}" class="dropdown-item"
-              onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-              <i class="fa fa-sign-out"></i> {{ __('Logout') }}
-            </a>
+                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out"></i> {{ __('Logout') }}
+              </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
           </div>
         </li>
@@ -77,10 +84,34 @@
     {{-- SIDEBAR --}}
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav flex-column side-nav">
-
-        <a href="{{route('admin.dashboard')}}" class="nav-item nav-link">{{ __('Dashboard') }}</a>
-
         <hr>
+
+        <a href="/" class="nav-item nav-link ps-2 d-md-none" target="_blank">
+          <i class="fa fa-home"></i> {{ __('to Site') }}
+        </a>
+
+        <hr class="d-md-none">
+
+        <a href="{{route('admin.blog-category.index')}}" class="nav-item nav-link ps-2">
+          <i class="fa fa-book"></i> {{ __('Blog Categories') }}
+        </a>
+
+        <hr class="d-md-none">
+
+        <a href="{{route('admin.user.edit',auth()->user())}}" class="d-md-none nav-item nav-link ps-2">
+          <i class="fa fa-user"></i> {{ __('Profile') }}
+        </a>
+
+        <a class="d-md-none nav-item nav-link ps-2" href="{{route('admin.user.index')}}">
+          <i class="fa fa-users"></i> {{ __('All Users') }}
+        </a>
+
+        <hr class="d-md-none">
+
+        <a href="{{ route('logout') }}" class="d-md-none nav-item nav-link ps-2"
+          onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+          <i class="fa fa-sign-out"></i> {{ __('Logout') }}
+        </a>
 
       </div>
     </div>
@@ -88,7 +119,7 @@
 
   {{--  PAGE  --}}
   <div id="page-wrapper">
-    <div class="container-fluid pt-md-2">
+    <div class="container-fluid pt-2">
 
       <div class="flash-message">
         @foreach (['danger', 'warning', 'success', 'info'] as $msg)

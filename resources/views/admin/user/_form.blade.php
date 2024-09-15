@@ -33,6 +33,7 @@
     .autofeel-hack {
       position: absolute;
       top: -999px;
+      width: 1px;
     }
   </style>
 @endpush

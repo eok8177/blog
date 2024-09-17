@@ -13,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'roles' => \App\Http\Middleware\CheckRole::class,
+            'locale' => \App\Http\Middleware\Locale::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

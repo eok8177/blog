@@ -14,5 +14,7 @@
         "sass": "^1.56.1",
         "vite": "^5.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "choices.js": "^11.0.2"
+    }
 }

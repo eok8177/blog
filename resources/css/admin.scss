@@ -393,3 +393,10 @@ img.align-right {
 .mce-toc li {
   list-style-type: none;
 }
+
+.tox.tox-tinymce {
+  width: calc(100% - 50px);
+}
+.tox .tox-promotion, .tox-statusbar__branding {
+  display: none !important;
+}

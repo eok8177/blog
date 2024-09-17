@@ -46,3 +46,11 @@
 
 </div>
 @endsection
+
+@push('styles')
+<style>
+  table {
+    font-size: 13px;
+  }
+</style>
+@endpush

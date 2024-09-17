@@ -21,6 +21,8 @@ class CheckRole
         $actions = $request->route()->getAction();
         $roles = isset($actions['roles']) ? $actions['roles'] : null;
 
+        app()->setLocale($request->user()->locale);
+
         if ($request->user()->hasAnyRole($roles) || !$roles) {
             if ($request->user()->active == 0) {
                 // return redirect()->route('front.notActive');

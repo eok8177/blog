@@ -2,10 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
@@ -29,5 +25,36 @@ Route::group([
     Route::get('dashboard',[App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('user',App\Http\Controllers\Admin\UserController::class);
     Route::resource('blog-category',App\Http\Controllers\Admin\BlogCategoryController::class);
+    Route::resource('blog-page',App\Http\Controllers\Admin\BlogPageController::class);
 
 });
+
+// Front
+// GET routes
+$optionalLanguageRoutes = function() {
+    $locale = request()->segment(1) == 'ua' ? 'ua' : 'en';
+    app()->setLocale($locale);
+    Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('home');
+
+};
+
+// POST routes
+Route::group([
+    'as' => 'front.',
+    'namespace' => 'Front'
+], function() {
+    Route::post('/change-locale', [App\Http\Controllers\FrontController::class,'changeLocale'])->name('change-locale');
+});
+
+Route::group([
+    'prefix' => 'ua',
+    'as' => 'ua.front.',
+    'namespace' => 'Front',
+    'middleware' => 'locale'
+],$optionalLanguageRoutes);
+
+Route::group([
+    'as' => 'front.',
+    'namespace' => 'Front',
+    'middleware' => 'locale'
+], $optionalLanguageRoutes);

@@ -17,6 +17,8 @@
     "Updated": "Оновлено",
 
     "Blog Categories": "Категорії блогу",
+    "Blog Pages": "Сторінки блогу",
+    "Edit Blog Page": "Редагувати сторінку блогу",
     "Categories": "Категорії",
     "Create New Category": "Створити категорію",
     "Edit Category": "Редагувати категорію",
@@ -24,6 +26,7 @@
     "Cancel": "Скасувати",
     "Title": "Назва",
     "Preview": "Попередній перегляд",
+    "Description": "Опис",
     "Show": "Показати",
     "Show in menu": "Показати в меню",
     "Show on the site": "Показати на сайті",

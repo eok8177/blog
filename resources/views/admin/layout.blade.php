@@ -30,10 +30,15 @@
           <button type="button" class="menu-toggler nav-link" onclick="document.getElementById('app').classList.toggle('menu-closed');"><span class="navbar-toggler-icon"></span></button>
 
           <li class="nav-item">
-            <a href="{{route('admin.dashboard')}}" class="nav-link">{{ __('Dashboard') }}</a>
+            <a href="{{route('admin.dashboard')}}" class="nav-link">
+              <i class="fa fa-tachometer" aria-hidden="true"></i> {{ __('Dashboard') }}
+            </a>
           </li>
           <li class="nav-item d-none d-md-block">
             <a href="{{route('admin.blog-category.index')}}" class="nav-link"><i class="fa fa-book"></i> {{ __('Blog Categories') }}</a>
+          </li>
+          <li class="nav-item d-none d-md-block">
+            <a href="{{route('admin.blog-page.index')}}" class="nav-link"><i class="fa  fa-file-text-o"></i> {{ __('Blog Pages') }}</a>
           </li>
 
         </div>
@@ -94,6 +99,10 @@
 
         <a href="{{route('admin.blog-category.index')}}" class="nav-item nav-link ps-2">
           <i class="fa fa-book"></i> {{ __('Blog Categories') }}
+        </a>
+
+        <a href="{{route('admin.blog-page.index')}}" class="nav-item nav-link ps-2">
+          <i class="fa  fa-file-text-o"></i> {{ __('Blog Pages') }}
         </a>
 
         <hr class="d-md-none">

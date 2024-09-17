@@ -11,6 +11,14 @@
   <input type="text" name="name" class="form-control" value="{{ $user->name }}" required placeholder="Name">
 </div>
 
+<div class="mb-3">
+  <label>{{ __('Language') }}</label>
+  <select name="locale" class="form-control">
+    <option value="en" {{ $user->locale == 'en' ? 'selected' : ''}}>{{ __('English') }}</option>
+    <option value="uk" {{ $user->locale == 'uk' ? 'selected' : ''}}>{{ __('Ukraine') }}</option>
+  </select>
+</div>
+
 <div class="form-check form-switch">
   <input type="hidden" name="active" value="0">
   <input type="checkbox" name="active" id="active" {{$user->active ? 'checked' : ''}} value="1" class="form-check-input">

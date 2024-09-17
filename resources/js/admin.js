@@ -1,10 +1,12 @@
 import * as bootstrap from 'bootstrap'
 
+const locale = document.querySelector('html').getAttribute('lang')
+
 const editor_config = {
   license_key: "gpl",
   path_absolute: "/",
   selector: "textarea.tinymce",
-  language: 'uk',
+  language: locale,
   relative_urls: false,
 
   plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons accordion',

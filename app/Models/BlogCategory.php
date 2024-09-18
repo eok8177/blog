@@ -25,4 +25,16 @@ class BlogCategory extends Model
             ]
         ];
     }
+
+    public function getTitleAttribute()
+    {
+        $field = app()->getLocale() == 'en' ? 'title_en' : 'title_ua';
+        return $this->$field;
+    }
+
+    public function getPreviewAttribute()
+    {
+        $field = app()->getLocale() == 'en' ? 'preview_en' : 'preview_ua';
+        return $this->$field;
+    }
 }

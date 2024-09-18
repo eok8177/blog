@@ -7,18 +7,31 @@
 
   <title>{{ config('app.name', 'Laravel') }}</title>
 
-  <link rel="stylesheet" href="{{ asset('assets/admin.css').'?'.time() }}">
+  <link rel="stylesheet" href="{{ asset('assets/front.css').'?'.time() }}">
   @stack('styles')
 </head>
 
 <body>
-  <div class="container pt-2">
-
+  <header>
+    <nav>
+      <ul>
+        <li><a href="{{ locale_route('front.home') }}">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="select-lang">
+        <a href="{{$link_ua ?? ''}}" class="@if(app()->getLocale() == 'ua')active @endif">{{__('ua')}}</a> <span>|</span> <a href="{{$link_en ?? ''}}" class="@if(app()->getLocale() == 'en')active @endif">{{__('en')}}</a>
+      </div>
+    </nav>
+    <h1 class="title">
+      Blog Title
+    </h1>
+  </header>
+  <div class="container">
 
     @yield('content')
 
   </div>
-
 </div>
 
 @stack('scripts')

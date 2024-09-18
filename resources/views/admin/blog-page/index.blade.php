@@ -41,7 +41,7 @@
               <a href="{{route('admin.blog-page.edit', $page)}}" class="text-body">{{$page->slug}}</a>
             </td>
 
-            <td>{{$page->title_ua}}</td>
+            <td>{{$page->title}}</td>
 
             <td class="text-start text-nowrap" width="1%">
               <a href="{{route('admin.blog-page.edit', $page)}}" class="btn btn-sm">

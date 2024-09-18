@@ -2,13 +2,17 @@
 
 @section('content')
 
-@foreach($pages as $page)
-<div class="card mb-3">
-    <div class="card-header bg-light">
-        <h3>{{ $page->title_ua }}</h3>
+@foreach($pages as $post)
+<div class="article mb-3">
+    <div class="title">
+        <h3>
+            <a href="{{ locale_route('front.post', $post->slug) }}">
+                {{ $post->title }}
+            </a>
+        </h3>
     </div>
-    <div class="card-body">
-        {!! $page->preview_ua !!}
+    <div class="preview">
+        {!! $post->preview !!}
     </div>
 </div>
 @endforeach

@@ -29,4 +29,12 @@ class HomeController extends FrontController
             'seo' => $seo,
         ]);
     }
+
+    public function post($slug)
+    {
+        $post = BlogPage::where('slug', $slug)->firstOrFail();
+        return view('front.post',[
+            'post' => $post
+        ]);
+    }
 }

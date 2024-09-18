@@ -1,0 +1,73 @@
+@import "reset.scss";
+
+body {
+  background: linear-gradient(to bottom, #aad595, #fbf9f8 275px);
+  background-repeat: repeat-x;
+  height: 100%;
+  min-height: 100vh;
+  font-family: Arial, "Arial Unicode MS", Helvetica, Sans-Serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  max-width: 1200px;
+  margin: 0 auto;
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 15px 0;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+  }
+}
+.article {
+  background-color: #fff;
+  box-shadow: 1px 1px 3px #ddd;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  .title {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  .preview {
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #555;
+    text-align: justify;
+  }
+  .description {
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #555;
+    text-align: justify;
+  }
+}

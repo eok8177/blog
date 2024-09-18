@@ -41,7 +41,7 @@
               <a href="{{route('admin.blog-category.edit', $category)}}" class="text-body">{{$category->slug}}</a>
             </td>
 
-            <td>{{$category->title_ua}}</td>
+            <td>{{$category->title}}</td>
 
             <td class="text-start text-nowrap" width="1%">
               <a href="{{route('admin.blog-category.edit', $category)}}" class="btn btn-sm">

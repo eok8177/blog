@@ -57,6 +57,22 @@
                 </div>
               </div>
 
+              <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">{{ __('Image') }}</label>
+                <div class="col-sm-9">
+                  <div id="holder" style="margin-top:15px;max-height:100px;">
+                    <img src="{{$page->image}}" style="height: 5rem">
+                  </div>
+                  <div class="input-group mt-1">
+                    <span class="input-group-btn">
+                      <a id="lfm_btn" data-input="thumbnail" data-preview="holder" class="btn btn-sm btn-outline-secondary">
+                        <i class="fa fa-picture-o"></i> {{ __('Choose Image') }}
+                      </a>
+                    </span>
+                    <input id="thumbnail" class="form-control form-control-sm" type="text" name="image">
+                  </div>
+                </div>
+              </div>
 
               <div class="mb-3 row align-items-center">
                 <label class="col-sm-3 col-form-label">{{ __('Preview') }}</label>
@@ -178,16 +194,19 @@
 @endsection
 
 @push('scripts')
-  <link rel="stylesheet" href="/vendor/choices.js/choices.css" />
-  <script src="/vendor/choices.js/choices.min.js"></script>
+<link rel="stylesheet" href="/vendor/choices.js/choices.css" />
+<script src="/vendor/choices.js/choices.min.js"></script>
 <script>
 
-const multipleCancelButton = new Choices(
-  '.js-choice',
-  {
-    allowHTML: true,
-    removeItemButton: true,
-  }
-);
+  const multipleCancelButton = new Choices(
+    '.js-choice',
+    {
+      allowHTML: true,
+      removeItemButton: true,
+    }
+  );
+
+  lfmBtn('lfm_btn', 'Images');
+
 </script>
 @endpush

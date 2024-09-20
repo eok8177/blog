@@ -12,6 +12,7 @@
         </h3>
     </div>
     <div class="preview">
+        <img src="{{ $post->image }}" alt="{{ $post->title }}">
         {!! $post->preview !!}
     </div>
 </div>

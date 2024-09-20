@@ -31,6 +31,8 @@
             <th scope="col">#</th>
             <th scope="col">slug</th>
             <th scope="col">{{ __('Title') }}</th>
+            <th scope="col">{{ __('Preview') }}</th>
+            <th scope="col">{{ __('Date') }}</th>
             <th scope="col" class="text-start">{{ __('Actions') }}</th>
           </tr>
         </thead>
@@ -42,6 +44,9 @@
             </td>
 
             <td>{{$page->title}}</td>
+            <td>{{ str_cut($page->preview, 80) }}</td>
+
+            <td>{{$page->created_at->format('d.m.Y H:i')}}</td>
 
             <td class="text-start text-nowrap" width="1%">
               <a href="{{route('admin.blog-page.edit', $page)}}" class="btn btn-sm">

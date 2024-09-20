@@ -67,9 +67,9 @@ class UserController extends Controller
 
         $user->update($data);
 
-        if (array_key_exists('redirect', $data)) return redirect()->route('admin.dashboard')->with('success', 'User updated');
+        if (array_key_exists('redirect', $data)) return redirect()->route('admin.dashboard')->with('success', __('Updated'));
 
-        return redirect()->route('admin.user.index')->with('success', 'User updated');
+        return redirect()->route('admin.user.index')->with('success', __('Updated'));
     }
 
     public function destroy(User $user)

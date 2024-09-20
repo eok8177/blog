@@ -15,7 +15,7 @@
   <label>{{ __('Language') }}</label>
   <select name="locale" class="form-control">
     <option value="en" {{ $user->locale == 'en' ? 'selected' : ''}}>{{ __('English') }}</option>
-    <option value="uk" {{ $user->locale == 'uk' ? 'selected' : ''}}>{{ __('Ukraine') }}</option>
+    <option value="ua" {{ $user->locale == 'ua' ? 'selected' : ''}}>{{ __('Ukraine') }}</option>
   </select>
 </div>
 

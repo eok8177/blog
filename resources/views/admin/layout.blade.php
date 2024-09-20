@@ -13,7 +13,7 @@
   <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
   {{-- @vite(['resources/css/admin.scss']) --}}
 
-  <link rel="stylesheet" href="{{ asset('assets/admin.css').'?'.time() }}">
+  <link rel="stylesheet" href="{{ asset('assets/admin-css.css').'?'.time() }}">
   @stack('styles')
 </head>
 
@@ -159,7 +159,7 @@
 </div>
 
 <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
-<script src="{{ asset('assets/admin2.js').'?'.time() }}"></script>
+<script src="{{ asset('assets/admin.js').'?'.time() }}"></script>
 @stack('scripts')
 </body>
 </html>

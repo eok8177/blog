@@ -9,6 +9,8 @@ $width-desktop-to: 1399px;
 $white: #fff;
 $gray: #ddd;
 $black: #333;
+$hover: #24943c;
+
 
 body {
   background: linear-gradient(to bottom, #aad595, #fbf9f8 275px);
@@ -24,6 +26,9 @@ body {
 a {
   text-decoration: none;
   color: $black;
+  &:hover {
+    color: $hover;
+  }
 }
 img {
   height: auto;

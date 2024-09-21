@@ -26,6 +26,7 @@ a {
   color: $black;
 }
 img {
+  height: auto;
   max-width: 100%;
 }
 @media screen and (max-width: $width-mobile) {

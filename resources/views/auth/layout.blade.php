@@ -10,7 +10,7 @@
 
     {{-- @vite(['resources/css/admin.scss', 'resources/js/admin.js']) --}}
 
-    <link rel="stylesheet" href="{{ asset('assets/admin.css').'?'.time() }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin-css.css').'?'.time() }}">
 </head>
 <body>
     <div class="auth-page">

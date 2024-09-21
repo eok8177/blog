@@ -1,5 +1,15 @@
 @import "reset.scss";
 
+$width-mobile: 767px;
+$width-tablet-from: 768px;
+$width-tablet-to: 1199px;
+$width-desktop-from: 1200px;
+$width-desktop-to: 1399px;
+
+$white: #fff;
+$gray: #ddd;
+$black: #333;
+
 body {
   background: linear-gradient(to bottom, #aad595, #fbf9f8 275px);
   background-repeat: repeat-x;
@@ -8,24 +18,48 @@ body {
   font-family: Arial, "Arial Unicode MS", Helvetica, Sans-Serif;
   font-size: 14px;
   font-weight: 400;
-  color: #333;
+  color: $black;
 }
 
 a {
   text-decoration: none;
-  color: #333;
+  color: $black;
 }
 img {
   max-width: 100%;
 }
-
+@media screen and (max-width: $width-mobile) {
+  body {
+    padding: 5px;
+  }
+}
 .container {
-  max-width: 1200px;
+  max-width: $width-desktop-to;
   margin: 0 auto;
 }
 
+.grid {
+  .sidebar {
+    background-color: $white;
+    box-shadow: 1px 1px 3px $gray;
+    padding: 15px;
+    border-radius: 4px;
+  }
+  @media screen and (min-width: $width-tablet-from) {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    .main {
+      width: calc(100% - 300px);
+    }
+    .sidebar {
+      width: 300px;
+    }
+  }
+}
+
 header {
-  max-width: 1200px;
+  max-width: $width-desktop-to;
   margin: 0 auto;
   .title {
     font-size: 28px;
@@ -46,8 +80,8 @@ nav {
   }
 }
 .article {
-  background-color: #fff;
-  box-shadow: 1px 1px 3px #ddd;
+  background-color: $white;
+  box-shadow: 1px 1px 3px $gray;
   padding: 15px;
   border-radius: 4px;
   margin-bottom: 16px;
@@ -60,14 +94,14 @@ nav {
     margin-bottom: 15px;
     font-size: 18px;
     line-height: 1.5;
-    color: #555;
+    color: $black;
     text-align: justify;
   }
   .description {
     margin-bottom: 15px;
     font-size: 18px;
     line-height: 1.5;
-    color: #555;
+    color: $black;
     text-align: justify;
   }
 }

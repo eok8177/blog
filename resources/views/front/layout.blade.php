@@ -29,7 +29,16 @@
   </header>
   <div class="container">
 
-    @yield('content')
+    <div class="grid">
+      <div class="main">
+        @yield('content')
+      </div>
+      <div class="sidebar">
+        Sidebar
+      </div>
+    </div>
+
+
 
   </div>
 </div>

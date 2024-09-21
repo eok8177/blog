@@ -1,18 +1,7 @@
 {
-  "resources/css/admin-css.scss": {
-    "file": "assets/admin-css.css",
-    "src": "resources/css/admin-css.scss",
-    "isEntry": true
-  },
   "resources/css/front.scss": {
     "file": "assets/front.css",
     "src": "resources/css/front.scss",
-    "isEntry": true
-  },
-  "resources/js/admin.js": {
-    "file": "assets/admin.js",
-    "name": "admin",
-    "src": "resources/js/admin.js",
     "isEntry": true
   }
 }

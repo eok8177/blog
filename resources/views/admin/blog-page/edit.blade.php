@@ -69,7 +69,7 @@
                         <i class="fa fa-picture-o"></i> {{ __('Choose Image') }}
                       </a>
                     </span>
-                    <input id="thumbnail" class="form-control form-control-sm" type="text" name="image">
+                    <input id="thumbnail" class="form-control form-control-sm" type="text" name="image" value="{{$page->image}}">
                   </div>
                 </div>
               </div>

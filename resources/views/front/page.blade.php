@@ -4,26 +4,26 @@
 
 <div class="article mb-3">
     <div class="title">
-        <h3>{{ $post->title }}</h3>
+        <h3>{{ $page->title }}</h3>
     </div>
     <div class="description">
-        {!! $post->description !!}
+        {!! $page->description !!}
     </div>
 </div>
 @endsection
 
 @push('head')
-  @if($post->noindex == 1 && $post->nofollow == 1)
+  @if($page->noindex == 1 && $page->nofollow == 1)
   <meta name="robots" content="noindex, nofollow">
-  @elseif($post->noindex == 1)
+  @elseif($page->noindex == 1)
   <meta name="robots" content="noindex">
-  @elseif($post->nofollow == 1)
+  @elseif($page->nofollow == 1)
   <meta name="robots" content="nofollow">
   @endif
 
-  <link rel="canonical" href="{{locale_route('front.post',$post->slug)}}">
-  <link rel="alternate" hreflang="en" href="{{locale_route('front.post',$post->slug, 'en')}}">
-  <link rel="alternate" hreflang="ua" href="{{locale_route('front.post',$post->slug, 'ua')}}">
+  <link rel="canonical" href="{{locale_route('front.page',$page->slug)}}">
+  <link rel="alternate" hreflang="en" href="{{locale_route('front.page',$page->slug, 'en')}}">
+  <link rel="alternate" hreflang="ua" href="{{locale_route('front.page',$page->slug, 'ua')}}">
 
   <script type="application/ld+json">
   {
@@ -41,5 +41,5 @@
   <meta property="og:description" content="{{ strip_tags($seo_description) }}" />
   <meta property="og:url" content="{{ request()->url() }}">
   <meta property="og:locale" content="{{ app()->getLocale() == 'en' ? 'en_US' : 'uk_UA' }}">
-  <meta property="og:image" content="{{ request()->root().'/'.$post->image }}">
+  {{-- <meta property="og:image" content="{{ request()->root().'/'.$page->image }}"> --}}
 @endpush

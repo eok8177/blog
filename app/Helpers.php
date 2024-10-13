@@ -1,8 +1,9 @@
 <?php
 
-function locale_route($method, $items = null)
+function locale_route($method, $items = null, $locale = false)
 {
-  if (app()->getLocale() == 'ua') {
+  if(!$locale) $locale = app()->getLocale();
+  if ($locale == 'ua') {
     return route('ua.' . $method, $items) . '/';
   }
   return route($method, $items) . '/';

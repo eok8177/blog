@@ -63,7 +63,7 @@
                 <div class="col-sm-9 pt-2">
                   <input type="hidden" name="show" value="0">
                   <input type="checkbox" name="show" id="show" {{$category->show ? 'checked' : ''}} value="1" class="form-check-input">
-                  <span class="ps-2 text-muted">{{__('Show on the site') }}</span>
+                  <label class="ps-2 text-muted d-inline pointer" for="show">{{__('Show on the site') }}</label>
                 </div>
               </div>
 
@@ -72,6 +72,7 @@
                 <div class="col-sm-9 pt-2">
                   <input type="hidden" name="show_in_menu" value="0">
                   <input type="checkbox" name="show_in_menu" id="show_in_menu" {{$category->show_in_menu ? 'checked' : ''}} value="1" class="form-check-input">
+                  <label class="ps-2 text-muted d-inline pointer" for="show_in_menu">{{__('Show in menu') }}</label>
                 </div>
               </div>
 
@@ -134,7 +135,7 @@
                 <div class="col-sm-9 pt-2">
                   <input type="hidden" name="noindex" value="0">
                   <input type="checkbox" name="noindex" id="noindex" {{$category->noindex ? 'checked' : ''}} value="1" class="form-check-input">
-                  <span class="ps-2 text-muted">{{__('Prevent robots from indexing of a page') }}</span>
+                  <label class="ps-2 text-muted d-inline pointer" for="noindex">{{__('Prevent robots from indexing of a page') }}</label>
                 </div>
               </div>
               <div class="mt-3 row">
@@ -142,7 +143,7 @@
                 <div class="col-sm-9 pt-2">
                   <input type="hidden" name="nofollow" value="0">
                   <input type="checkbox" name="nofollow" id="nofollow" {{$category->nofollow ? 'checked' : ''}} value="1" class="form-check-input">
-                  <span class="ps-2 text-muted">{{__('Prevent robots from following links on the page') }}</span>
+                  <label class="ps-2 text-muted d-inline pointer" for="nofollow">{{__('Prevent robots from following links on the page') }}</label>
                 </div>
               </div>
             </div>

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\BlogCategory;
+use App\Models\Page;
+use App\Models\Setting;
 
 class FrontController extends Controller
 {
@@ -20,35 +22,20 @@ class FrontController extends Controller
                 $is_bot = true;
             }
         }
+
+        // Set global var for a views
         view()->share('norobot', $is_bot ? false : true);
         view()->share('prod', env('APP_ENV') == 'prod' ? true : false);
 
-        if ($request->isMethod('get')) {
-            $route = $request->route() ? $request->route()->getName() : '';
-            $slug = $request->route() ? $request->route()->parameter('slug') : '';
-            $parameters = $request->route() ? $request->route()->originalParameters() : '';
-            $locale = isset($locale) ? $locale : 'ua';
+        view()->share('lang_link_ua', $this->calcLocaleLink('ua'));
+        view()->share('lang_link_en', $this->calcLocaleLink('en'));
 
-            $link_ua = $this->calcLocaleLink('ua', $route, $slug, $parameters);
-            $link_en = $this->calcLocaleLink('en', $route, $slug, $parameters);
+        view()->share('menu_pages', Page::where('show_in_menu', true)->orderBy('id', 'asc')->take(5)->get());
+        view()->share('menu_categories', BlogCategory::where('show_in_menu', true)->orderBy('id', 'asc')->take(5)->get());
 
-            view()->share('link_ua', $link_ua);
-            view()->share('link_en', $link_en);
-        }
-        $locale = app()->getLocale();
-
-        // Set global var for a views
-
-        view()->share('locale', $locale);
-        view()->share('route_name', $request->route() ? $request->route()->getName() : '');
-        view()->share('route_parameters', $request->route() ? $request->route()->parameters : '');
-        view()->share('route_prefix', $locale == 'ua' ? 'ua.front' : 'front');
-
-        view()->share('seo', [
-            // 'title' => Setting::str('seo_title_'.$locale),
-            // 'keywords' => Setting::str('seo_keywords_'.$locale),
-            // 'description' => Setting::str('seo_description_'.$locale),
-        ]);
+        view()->share('seo_title', Setting::str('seo_title'));
+        view()->share('seo_keywords', Setting::str('seo_keywords'));
+        view()->share('seo_description', Setting::str('seo_description'));
     }
 
     // Change locale with reload current page
@@ -67,8 +54,11 @@ class FrontController extends Controller
         return redirect($link);
     }
 
-    private function calcLocaleLink($locale, $route, $slug, $parameters)
+    private function calcLocaleLink($locale)
     {
+        $route = request()->route() ? request()->route()->getName() : '';
+        $parameters = request()->route() ? request()->route()->originalParameters() : '';
+
         if ($locale == 'en' && str_starts_with($route, 'ua.')) {
             $route = preg_replace('/^ua\./', '', $route);
         }

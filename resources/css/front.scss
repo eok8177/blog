@@ -104,6 +104,19 @@ nav {
     font-size: 16px;
   }
 }
+
+.v-nav {
+  margin-top: 15px;
+  li {
+    display: block;
+    margin-bottom: 10px;
+  }
+  a {
+    font-size: 16px;
+  }
+}
+
+
 .article {
   border: 1px solid rgba(129, 129, 129, 0.69);
   background-color: rgba(255, 255, 255, .8);

@@ -38,7 +38,13 @@
             <a href="{{route('admin.blog-category.index')}}" class="nav-link"><i class="fa fa-book"></i> {{ __('Blog Categories') }}</a>
           </li>
           <li class="nav-item d-none d-md-block">
-            <a href="{{route('admin.blog-page.index')}}" class="nav-link"><i class="fa  fa-file-text-o"></i> {{ __('Blog Pages') }}</a>
+            <a href="{{route('admin.blog-page.index')}}" class="nav-link"><i class="fa fa-file-text-o"></i> {{ __('Blog Pages') }}</a>
+          </li>
+          <li class="nav-item d-none d-md-block">
+            <a href="{{route('admin.page.index')}}" class="nav-link"><i class="fa fa-file-text-o"></i> {{ __('Static Pages') }}</a>
+          </li>
+          <li class="nav-item d-none d-md-block">
+            <a href="{{route('admin.settings.index')}}" class="nav-link"><i class="fa fa-cog"></i> {{ __('Settings') }}</a>
           </li>
 
         </div>
@@ -102,7 +108,15 @@
         </a>
 
         <a href="{{route('admin.blog-page.index')}}" class="nav-item nav-link ps-2">
-          <i class="fa  fa-file-text-o"></i> {{ __('Blog Pages') }}
+          <i class="fa fa-file-text-o"></i> {{ __('Blog Pages') }}
+        </a>
+
+        <a href="{{route('admin.page.index')}}" class="nav-item nav-link ps-2">
+          <i class="fa fa-file-text-o"></i> {{ __('Static Pages') }}
+        </a>
+
+        <a href="{{route('admin.settings.index')}}" class="nav-item nav-link ps-2">
+          <i class="fa fa-cog"></i> {{ __('Settings') }}
         </a>
 
         <hr class="d-md-none">

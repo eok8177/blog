@@ -1,4 +1,6 @@
 {
+    "Home": "Головна",
+
     "Profile": "Профіль",
     "New User": "Новий користувач",
     "User": "Користувач",
@@ -33,6 +35,12 @@
     "Show": "Показати",
     "Show in menu": "Показати в меню",
     "Show on the site": "Показати на сайті",
+
+    "Static Pages": "Статичні сторінки",
+    "Edit Static Page": "Редагувати статичну сторінку",
+    "Create New Page": "Створити сторінку",
+
+    "Settings": "Налаштування",
 
     "Leave empty if you want to Slug generated from Title UA": "Залиште поле пустим, якщо ви хочете генерувати Slug від Title UA",
     "Prevent robots from indexing of a page": "Заборонити роботам індексувати сторінку",

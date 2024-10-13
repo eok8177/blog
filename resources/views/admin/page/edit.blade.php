@@ -1,10 +1,10 @@
 @extends('admin.layout')
 
 @section('content')
-<form action="{{route('admin.blog-page.update', $page)}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('admin.page.update', $page)}}" method="POST" enctype="multipart/form-data">
 <div class="card">
   <div class="card-header bg-light d-flex justify-content-between sticky">
-    <h5 class="title">{{ __('Edit Blog Page') }}: {{$page->title_ua}}</h5>
+    <h5 class="title">{{ __('Edit Static Page') }}: {{$page->title_ua}}</h5>
     <button type="submit" class="btn btn-sm btn-outline-secondary">{{ __('Save') }}</button>
   </div>
 
@@ -44,51 +44,6 @@
               </div>
 
               <div class="mb-3 row align-items-center">
-                <label class="col-sm-3 col-form-label">{{ __('Categories') }}</label>
-                <div class="col-sm-9">
-                  <select name="category_ids[]" class="form-select js-choice" multiple>
-                    <option value="">---</option>
-                    @foreach($categories as $category)
-                    <option value="{{$category->id}}" {{ $page->categories()->pluck('id')->contains($category->id) ? 'selected' : ''}}>
-                      {{$category->title_ua}}
-                    </option>
-                    @endforeach
-                  </select>
-                </div>
-              </div>
-
-              <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">{{ __('Image') }}</label>
-                <div class="col-sm-9">
-                  <div id="holder" style="margin-top:15px;max-height:100px;">
-                    <img src="{{$page->image}}" style="height: 5rem">
-                  </div>
-                  <div class="input-group mt-1">
-                    <span class="input-group-btn">
-                      <a id="lfm_btn" data-input="thumbnail" data-preview="holder" class="btn btn-sm btn-outline-secondary">
-                        <i class="fa fa-picture-o"></i> {{ __('Choose Image') }}
-                      </a>
-                    </span>
-                    <input id="thumbnail" class="form-control form-control-sm" type="text" name="image" value="{{$page->image}}">
-                  </div>
-                </div>
-              </div>
-
-              <div class="mb-3 row align-items-center">
-                <label class="col-sm-3 col-form-label">{{ __('Preview') }}</label>
-                <div class="col-sm-9">
-                  <div class="input-group mb-1">
-                    <span class="input-group-text">UA</span>
-                    <textarea class="form-control" name="preview_ua">{{$page->preview_ua}}</textarea>
-                  </div>
-                  <div class="input-group">
-                    <span class="input-group-text">EN</span>
-                    <textarea class="form-control" name="preview_en">{{$page->preview_en}}</textarea>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mb-3 row align-items-center">
                 <label class="col-sm-3 col-form-label">{{ __('Description') }}</label>
                 <div class="col-sm-9">
                   <div class="input-group mb-1">
@@ -108,6 +63,15 @@
                   <input type="hidden" name="show" value="0">
                   <input type="checkbox" name="show" id="show" {{$page->show ? 'checked' : ''}} value="1" class="form-check-input">
                   <label class="ps-2 text-muted d-inline pointer" for="show">{{__('Show on the site') }}</label>
+                </div>
+              </div>
+
+              <div class="mt-3 row">
+                <label class="col-sm-3 col-form-label" for="show_in_menu">{{ __('Show in menu') }}</label>
+                <div class="col-sm-9 pt-2">
+                  <input type="hidden" name="show_in_menu" value="0">
+                  <input type="checkbox" name="show_in_menu" id="show_in_menu" {{$page->show_in_menu ? 'checked' : ''}} value="1" class="form-check-input">
+                  <label class="ps-2 text-muted d-inline pointer" for="show_in_menu">{{__('Show in menu') }}</label>
                 </div>
               </div>
 
@@ -192,21 +156,3 @@
 </form>
 
 @endsection
-
-@push('scripts')
-<link rel="stylesheet" href="/vendor/choices.js/choices.css" />
-<script src="/vendor/choices.js/choices.min.js"></script>
-<script>
-
-  const multipleCancelButton = new Choices(
-    '.js-choice',
-    {
-      allowHTML: true,
-      removeItemButton: true,
-    }
-  );
-
-  lfmBtn('lfm_btn', 'Images');
-
-</script>
-@endpush

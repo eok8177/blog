@@ -26,6 +26,10 @@ Route::group([
     Route::resource('user',App\Http\Controllers\Admin\UserController::class);
     Route::resource('blog-category',App\Http\Controllers\Admin\BlogCategoryController::class);
     Route::resource('blog-page',App\Http\Controllers\Admin\BlogPageController::class);
+    Route::resource('page',App\Http\Controllers\Admin\PageController::class);
+
+    Route::get('settings',[App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
+    Route::put('settings',[App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
 
 });
 
@@ -36,6 +40,8 @@ $optionalLanguageRoutes = function() {
     app()->setLocale($locale);
     Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('home');
     Route::get('/post/{slug}', [App\Http\Controllers\Front\HomeController::class, 'post'])->name('post');
+
+    Route::get('/{slug}', [App\Http\Controllers\Front\HomeController::class, 'page'])->name('page');
 
 };
 

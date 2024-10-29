@@ -16,22 +16,13 @@ class Locale
     public function handle($request, Closure $next)
     {
         if ($request->method() === 'GET') {
-
-
-            $locale = 'en';
-
             $segment = $request->segment(1);
 
-            if ($segment == 'ua') $locale = $segment;
+            $locale = 'ua';
+            if ($segment == 'en') $locale = $segment;
 
             session(['locale' => $locale]);
             app()->setLocale($locale);
-
-            // redirect routes
-            $segments = $request->segments();
-            if ($locale == 'ua') unset($segments[0]);
-            $url = '/'.implode('/', $segments);
-            $base_url = $request->root();
 
             // trailing slash
             if ( $request->getRequestUri() != '/' &&
@@ -39,11 +30,9 @@ class Locale
                  strpos($request->getRequestUri(), '?') === false
                 )
             {
-                return redirect($base_url.$request->getRequestUri().'/', 301);
+                return redirect($request->root().$request->getRequestUri().'/', 301);
             }
         }
-
-        view()->share('locale', app()->getLocale());
 
         return $next($request);
     }

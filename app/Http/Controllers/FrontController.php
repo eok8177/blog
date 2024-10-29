@@ -38,35 +38,18 @@ class FrontController extends Controller
         view()->share('seo_description', Setting::str('seo_description'));
     }
 
-    // Change locale with reload current page
-
-    public function changeLocale(Request $request)
-    {
-        $locale = $request->get('locale', app()->getLocale());
-        $route = $request->get('route', false);
-        $slug = $request->get('slug', false);
-        $parameters = json_decode($request->get('parameters', false), true);
-
-        $link = $this->calcLocaleLink($locale, $route, $slug, $parameters);
-
-        session(['locale' => $locale]);
-
-        return redirect($link);
-    }
-
     private function calcLocaleLink($locale)
     {
         $route = request()->route() ? request()->route()->getName() : '';
         $parameters = request()->route() ? request()->route()->originalParameters() : '';
 
-        if ($locale == 'en' && str_starts_with($route, 'ua.')) {
+        if (str_starts_with($route, 'en.')) {
+            $route = preg_replace('/^en\./', '', $route);
+        }
+        if (str_starts_with($route, 'ua.')) {
             $route = preg_replace('/^ua\./', '', $route);
         }
 
-        if ($locale == 'ua' && !str_starts_with($route, 'ua.')) {
-            $route = 'ua.' . $route;
-        }
-
-        return route($route, $parameters) . '/';
+        return locale_route($route, $parameters, $locale);
     }
 }

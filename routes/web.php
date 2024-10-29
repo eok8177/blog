@@ -36,8 +36,6 @@ Route::group([
 // Front
 // GET routes
 $optionalLanguageRoutes = function() {
-    $locale = request()->segment(1) == 'ua' ? 'ua' : 'en';
-    app()->setLocale($locale);
     Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('home');
     Route::get('/category/{slug}', [App\Http\Controllers\Front\HomeController::class, 'category'])->name('category');
     Route::get('/post/{slug}', [App\Http\Controllers\Front\HomeController::class, 'post'])->name('post');
@@ -46,23 +44,17 @@ $optionalLanguageRoutes = function() {
 
 };
 
-// POST routes
+// with prefix set before without prefix
 Route::group([
-    'as' => 'front.',
-    'namespace' => 'Front'
-], function() {
-    Route::post('/change-locale', [App\Http\Controllers\FrontController::class,'changeLocale'])->name('change-locale');
-});
+    'prefix' => 'en',
+    'as' => 'en.front.',
+    'namespace' => 'Front',
+    'middleware' => 'locale'
+], $optionalLanguageRoutes);
 
 Route::group([
-    'prefix' => 'ua',
+    // 'prefix' => 'ua',
     'as' => 'ua.front.',
     'namespace' => 'Front',
     'middleware' => 'locale'
 ],$optionalLanguageRoutes);
-
-Route::group([
-    'as' => 'front.',
-    'namespace' => 'Front',
-    'middleware' => 'locale'
-], $optionalLanguageRoutes);

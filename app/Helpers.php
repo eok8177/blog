@@ -3,10 +3,7 @@
 function locale_route($method, $items = null, $locale = false)
 {
   if(!$locale) $locale = app()->getLocale();
-  if ($locale == 'ua') {
-    return route('ua.' . $method, $items) . '/';
-  }
-  return route($method, $items) . '/';
+  return route($locale. '.' . $method, $items) . '/';
 }
 
 function str_cut($str, $length = 150, $end = '...')

@@ -10,10 +10,10 @@
   <meta name="description" content="{{ $seo_description }}">
   <meta name="keywords" content="{{ $seo_keywords }}">
 
-  @stack('head')
+@stack('head')
 
   <link rel="stylesheet" href="{{ asset('assets/front.css').'?'.time() }}">
-  @stack('styles')
+@stack('styles')
 </head>
 
 <body>
@@ -26,7 +26,9 @@
         @endforeach
       </ul>
       <div class="select-lang">
-        <a href="{{$lang_link_ua ?? ''}}" class="@if(app()->getLocale() == 'ua')active @endif">{{__('ua')}}</a> <span>|</span> <a href="{{$lang_link_en ?? ''}}" class="@if(app()->getLocale() == 'en')active @endif">{{__('en')}}</a>
+        <a href="{{$lang_link_ua ?? ''}}" class="@if(app()->getLocale() == 'ua')active @endif">{{__('ua')}}</a>
+        <span>|</span>
+        <a href="{{$lang_link_en ?? ''}}" class="@if(app()->getLocale() == 'en')active @endif">{{__('en')}}</a>
       </div>
     </nav>
   </header>
@@ -42,7 +44,7 @@
         <ul class="v-nav">
           @foreach($menu_categories as $menu_category)
           <li>
-            <a href="#">{{ $menu_category->title }}</a>
+            <a href="{{ locale_route('front.category', $menu_category->slug) }}">{{ $menu_category->title }}</a>
           </li>
           @endforeach
         </ul>

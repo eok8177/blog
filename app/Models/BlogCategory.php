@@ -26,6 +26,11 @@ class BlogCategory extends Model
         ];
     }
 
+    public function pages()
+    {
+        return $this->belongsToMany(BlogPage::class);
+    }
+
     public function getTitleAttribute()
     {
         $field = app()->getLocale() == 'en' ? 'title_en' : 'title_ua';
@@ -35,6 +40,24 @@ class BlogCategory extends Model
     public function getPreviewAttribute()
     {
         $field = app()->getLocale() == 'en' ? 'preview_en' : 'preview_ua';
+        return $this->$field;
+    }
+
+    public function getSeoTitleAttribute()
+    {
+        $field = app()->getLocale() == 'en' ? 'seo_title_en' : 'seo_title_ua';
+        return $this->$field;
+    }
+
+    public function getSeoKeywordsAttribute()
+    {
+        $field = app()->getLocale() == 'en' ? 'seo_keywords_en' : 'seo_keywords_ua';
+        return $this->$field;
+    }
+
+    public function getSeoDescriptionAttribute()
+    {
+        $field = app()->getLocale() == 'en' ? 'seo_description_en' : 'seo_description_ua';
         return $this->$field;
     }
 }

@@ -20,14 +20,14 @@
 @endsection
 
 @push('head')
-  <link rel="canonical" href="{{locale_route('front.home')}}">
-  <link rel="alternate" hreflang="en" href="{{locale_route('front.home', '', 'en')}}">
-  <link rel="alternate" hreflang="ua" href="{{locale_route('front.home', '', 'ua')}}">
+  <link rel="canonical" href="{{locale_route('front.category', $category->slug)}}">
+  <link rel="alternate" hreflang="en" href="{{locale_route('front.category', $category->slug, 'en')}}">
+  <link rel="alternate" hreflang="ua" href="{{locale_route('front.category', $category->slug, 'ua')}}">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type":"WebSite",
+    "@type":"WebPages",
     "name":"{{$seo_title}}",
     "description":"{{$seo_description}}",
     "url": "{{request()->url()}}/"

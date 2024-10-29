@@ -28,7 +28,7 @@ class BlogPage extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(BlogCategory::class, 'blog_category_blog_pages', 'blog_page_id', 'blog_category_id');
+        return $this->belongsToMany(BlogCategory::class);
     }
 
     public function getTitleAttribute()

@@ -39,6 +39,7 @@ $optionalLanguageRoutes = function() {
     $locale = request()->segment(1) == 'ua' ? 'ua' : 'en';
     app()->setLocale($locale);
     Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('home');
+    Route::get('/category/{slug}', [App\Http\Controllers\Front\HomeController::class, 'category'])->name('category');
     Route::get('/post/{slug}', [App\Http\Controllers\Front\HomeController::class, 'post'])->name('post');
 
     Route::get('/{slug}', [App\Http\Controllers\Front\HomeController::class, 'page'])->name('page');

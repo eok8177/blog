@@ -11,6 +11,19 @@ $gray: #ddd;
 $black: #333;
 $hover: #127026;
 
+/* scrollbar on Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $white;
+}
+
 
 body {
   background: url("images/bg.jpg") no-repeat center top fixed;

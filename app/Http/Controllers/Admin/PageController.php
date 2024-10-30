@@ -10,9 +10,13 @@ class PageController extends Controller
 {
     public function index(Request $request)
     {
-        $pages = Page::orderBy('id', 'desc')->paginate($request->input('paginate', 20));
+        $pages = Page::orderBy('id', 'desc');
+        if($request->search) {
+            $pages = $pages->where('title_ua', 'like', '%'.$request->search.'%')
+            ->orWhere('title_en', 'like', '%'.$request->search.'%');
+        }
         return view('admin.page.index', [
-            'pages' => $pages
+            'pages' => $pages->paginate($request->input('paginate', 20))
         ]);
     }
 

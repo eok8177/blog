@@ -12,7 +12,7 @@
     <div class="d-none d-md-block">
       <form action="">
         <div class="input-group">
-          <input type="text" name="search" value="{{request()->input('search')}}" class="form-control">
+          <input type="search" name="search" value="{{request()->input('search')}}" class="form-control">
           <button type="submit" class="btn btn-outline-secondary"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
       </form>

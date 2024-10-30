@@ -10,9 +10,13 @@ class BlogCategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = BlogCategory::orderBy('id', 'desc')->paginate($request->input('paginate', 20));
+        $categories = BlogCategory::orderBy('id', 'desc');
+        if($request->search) {
+            $categories = $categories->where('title_ua', 'like', '%'.$request->search.'%')
+                ->orWhere('title_en', 'like', '%'.$request->search.'%');
+        }
         return view('admin.blog-category.index', [
-            'categories' => $categories
+            'categories' => $categories->paginate($request->input('paginate', 20))
         ]);
     }
 

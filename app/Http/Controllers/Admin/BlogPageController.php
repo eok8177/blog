@@ -10,9 +10,13 @@ class BlogPageController extends Controller
 {
     public function index(Request $request)
     {
-        $pages = BlogPage::orderBy('id', 'desc')->paginate($request->input('paginate', 20));
+        $pages = BlogPage::orderBy('id', 'desc');
+        if($request->search) {
+            $pages = $pages->where('title_ua', 'like', '%'.$request->search.'%')
+                ->orWhere('title_en', 'like', '%'.$request->search.'%');
+        }
         return view('admin.blog-page.index', [
-            'pages' => $pages
+            'pages' => $pages->paginate($request->input('paginate', 20))
         ]);
     }
 

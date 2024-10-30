@@ -17,6 +17,9 @@
     </div>
 </div>
 @endforeach
+
+{{ $pages->appends(request()->except('page'))->links('front._pagination') }}
+
 @endsection
 
 @push('head')

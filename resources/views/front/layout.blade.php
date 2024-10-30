@@ -20,9 +20,17 @@
   <header>
     <nav>
       <ul>
-        <li><a href="{{ locale_route('front.home') }}">{{ __('Home') }}</a></li>
+        <li>
+          <a href="{{ locale_route('front.home') }}" class="{{ request()->routeIs('*front.home') ? 'active' : '' }}">
+            {{ __('Home') }}
+          </a>
+        </li>
         @foreach($menu_pages as $menu_page)
-        <li><a href="{{ locale_route('front.page', $menu_page->slug) }}">{{ $menu_page->title }}</a></li>
+        <li>
+          <a href="{{ locale_route('front.page', $menu_page->slug) }}" class="{{ request()->is('*'.$menu_page->slug) ? 'active' : '' }}">
+            {{ $menu_page->title }}
+          </a>
+        </li>
         @endforeach
       </ul>
       <div class="select-lang">
@@ -44,7 +52,9 @@
         <ul class="v-nav">
           @foreach($menu_categories as $menu_category)
           <li>
-            <a href="{{ locale_route('front.category', $menu_category->slug) }}">{{ $menu_category->title }}</a>
+            <a href="{{ locale_route('front.category', $menu_category->slug) }}" class="{{ request()->is('*category/'.$menu_category->slug) ? 'active' : '' }}">
+              {{ $menu_category->title }}
+            </a>
           </li>
           @endforeach
         </ul>

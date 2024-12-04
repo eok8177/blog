@@ -23,7 +23,7 @@
 
   <link rel="canonical" href="{{locale_route('front.post',$post->slug)}}">
   <link rel="alternate" hreflang="en" href="{{locale_route('front.post',$post->slug, 'en')}}">
-  <link rel="alternate" hreflang="ua" href="{{locale_route('front.post',$post->slug, 'ua')}}">
+  <link rel="alternate" hreflang="uk" href="{{locale_route('front.post',$post->slug, 'ua')}}">
 
   <script type="application/ld+json">
   {

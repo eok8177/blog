@@ -25,7 +25,7 @@
 @push('head')
   <link rel="canonical" href="{{locale_route('front.category', $category->slug)}}">
   <link rel="alternate" hreflang="en" href="{{locale_route('front.category', $category->slug, 'en')}}">
-  <link rel="alternate" hreflang="ua" href="{{locale_route('front.category', $category->slug, 'ua')}}">
+  <link rel="alternate" hreflang="uk" href="{{locale_route('front.category', $category->slug, 'ua')}}">
 
   <script type="application/ld+json">
   {
